@@ -73,19 +73,22 @@ After clicking **"Yes"** to start the test, the dashboard fetches real-time sens
 ## 🛠️ Setup Instructions
 
 1. **Clone this repository:**
+    - Open your terminal or Git Bash and run:
 
     ```bash
-    git clone https://github.com/yourusername/liquidlens.git
-    cd liquidlens
+    git clone https://github.com/Shrijan18/LiquidLens.git
+    cd LiquidLens
     ```
 
 2. **Open** `index.html` in your browser to view the dashboard.
 
 3. **Ensure your ESP32 board is:**
-    - Connected to sensors properly  
-    - Sending data to Blynk Cloud using your unique auth token
+    - Flashed with the correct firmware (including code to read sensor data: pH, TDS, turbidity, temperature).
+    - Connected to Blynk Cloud using your Auth Token, WiFi SSID, and password.
+    - Sending data to Virtual Pins (e.g., V0 for pH, V1 for TDS, etc.).
 
-4. **In** `script.js`, replace the token value with your Blynk Auth Token:
+4. **Configure the JavaScript API Token** 
+    - Open script.js and replace the placeholder with your actual Blynk token:
 
     ```javascript
     const BLYNK_AUTH = "YOUR_BLYNK_TOKEN";
