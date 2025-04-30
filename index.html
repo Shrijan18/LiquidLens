@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiquidLens</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+</head>
+
+<body>
+  <!-- NEW: Entry Screen -->
+  <div id="entry-screen">
+    <h1>Are you ready to test the water?</h1>
+    <div class="entry-buttons">
+      <button class="entry-btn" id="yes-btn">Yes, Start Testing!</button>
+      <button class="entry-btn" id="no-btn">No, Not Now</button>
+    </div>
+  </div>
+
+  <!-- NEW: Loading Animation -->
+  <div id="loading-screen">
+    <div class="loading-meter">
+      <div class="loading-needle"></div>
+    </div>
+    <div id="loading-text">Initializing sensors...</div>
+  </div>
+
+  <div class="container" style="display:none;">
+    <header>
+      <div>
+        <img src="logo.png" alt="LiquidLens Logo">
+        <h1>LiquidLens</h1>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#sensors">Sensor Values</a>
+        <a href="#reports">Reports</a>
+        <a href="#about">About Us</a>
+      </nav>
+    </header>
+
+    <h2 id="welcome">Welcome to LiquidLens!</h2>
+
+    <div class="intro-section">
+      <div class="intro-container">
+        <div class="intro-text">
+          <p>
+            <strong>LiquidLens</strong> is an innovative <strong>smart water pollution monitoring system</strong>
+            developed to offer <strong>real-time insights</strong> into the quality of water from various sources.
+            With the increasing concern over water contamination, our system aims to be a <strong>reliable,
+              accessible, and educational tool</strong> for individuals, communities, and local authorities.
+          </p>
+
+          <p>
+            Our system utilizes key water quality sensors — including <strong>pH</strong>, <strong>Turbidity</strong>,
+            <strong>Total Dissolved Solids (TDS)</strong>, and <strong>Temperature</strong> — to collect vital data
+            that reflects the overall health of a water body. These parameters are essential for assessing the safety
+            of water for drinking, agriculture, and industrial use.
+          </p>
+
+          <p>Once collected, this sensor data is:</p>
+          <ul>
+            <li>✔️ Analyzed instantly</li>
+            <li>📊 Displayed through an intuitive web dashboard</li>
+            <li>📋 Summarized in easy-to-understand reports with safety indicators</li>
+          </ul>
+
+          <p>
+            Whether it's a <strong>river</strong>, <strong>lake</strong>, <strong>pond</strong>, or <strong>groundwater
+              source</strong>, LiquidLens provides a <strong>scientific, transparent, and easy-to-access
+              overview</strong>
+            of water quality.
+          </p>
+        </div>
+
+        <div class="intro-image">
+          <img src="water-info.webp" alt="Water Quality Visualization">
+        </div>
+      </div>
+    </div>
+
+    <div class="section form-container">
+      <h2>Water Sample Information</h2>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" required placeholder="Enter collection location">
+      </div>
+      <div class="form-group">
+        <label for="source">Water Source:</label>
+        <select id="source" required>
+          <option value="">Select source</option>
+          <option value="River">River</option>
+          <option value="Lake">Lake</option>
+          <option value="Well">Well</option>
+          <option value="Tap">Tap Water</option>
+          <option value="Industrial">Industrial Effluent</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="datetime">Collection Date/Time:</label>
+        <input type="datetime-local" id="datetime" required>
+      </div>
+      <div class="form-group">
+        <label for="collector">Collector Name:</label>
+        <input type="text" id="collector" required placeholder="Who collected the sample">
+      </div>
+      <div class="form-group">
+        <label for="industry">Industry Type (if applicable):</label>
+        <input type="text" id="industry" placeholder="Optional industry information">
+      </div>
+      <button id="submitBtn">Submit Details</button>
+    </div>
+
+    <div class="section" id="sensors">
+      <h2>Sensor Values</h2>
+      <div id="error"></div>
+      <div class="sensor-grid">
+        <div class="gauge">
+          <div class="meter">
+            <div class="needle" id="ph-needle"></div>
+          </div>
+          <div class="value-label" id="ph-value">0</div>
+          <div class="sensor-label">pH</div>
+        </div>
+        <div class="gauge">
+          <div class="meter">
+            <div class="needle" id="tds-needle"></div>
+          </div>
+          <div class="value-label" id="tds-value">0</div>
+          <div class="sensor-label">TDS (ppm)</div>
+        </div>
+        <div class="gauge">
+          <div class="meter">
+            <div class="needle" id="turbidity-needle"></div>
+          </div>
+          <div class="value-label" id="turbidity-value">0</div>
+          <div class="sensor-label">Turbidity (NTU)</div>
+        </div>
+        <div class="gauge">
+          <div class="meter">
+            <div class="needle" id="temperature-needle"></div>
+          </div>
+          <div class="value-label" id="temperature-value">0</div>
+          <div class="sensor-label">Temperature (°C)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="reports">
+      <h2>Reports</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+            <th>Ideal Range</th>
+            <th>Status</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="section" id="about">
+      <h2>About Us & Our Approach</h2>
+      <p>
+        We are a group of enthusiastic students working together on this water pollution monitoring project
+        called LiquidLens. Our aim is to make water testing simple, smart, and accessible for everyone.
+      </p>
+      <p>
+        Our team is divided into different roles — one handles the hardware and sensors, another takes care of
+        the software and web app, and others help with data analysis and project design. Everyone brings something
+        unique to the table.
+      </p>
+      <p>
+        Our approach is to use affordable sensors with an ESP32 board to collect data like pH, TDS, turbidity,
+        and temperature from water samples. This data is sent to our web app, where users can see it clearly and get
+        a report about the water's quality.
+      </p>
+      <p>
+        We believe this project can help people, schools, and even local authorities check water health easily
+        and take action if needed. LiquidLens is our small step towards a cleaner and healthier environment.
+      </p>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 LiquidLens Project Team. All rights reserved.
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
