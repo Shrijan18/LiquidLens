@@ -93,7 +93,6 @@ function handleFormSubmit() {
 // Update dashboard with sensor data
 async function updateDashboard() {
     try {
-        // Corrected order: [pH, TDS, Temperature, Turbidity]
         const [ph, tds, temp, turbidity] = await Promise.all([
             fetchSensorData('V1'),
             fetchSensorData('V2'),
