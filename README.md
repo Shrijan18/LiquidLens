@@ -31,6 +31,8 @@
 
 ## 🖥️ Live Dashboard Overview
 
+[Click here to view the live site](https://shrijan18.github.io/LiquidLens/)
+
 After clicking **"Yes"** to start the test, the dashboard fetches real-time sensor values from Blynk Cloud every 5 seconds and displays them in:
 
 - **Main visual cards** for each parameter  
