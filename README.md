@@ -102,3 +102,10 @@ After clicking **"Yes"** to start the test, the dashboard fetches real-time sens
 - Export reports as PDF or CSV  
 - Integrate map-based location tracking  
 - Add historical data visualization (charts)
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
